@@ -12,6 +12,7 @@ public final class SirDuck {
 
         final DiscordClient client = DiscordClient.create(args[0]);
 
+        new TemporaryTextChannels(client.getEventDispatcher());
         new AdditionalTalkChannels(client.getEventDispatcher());
         client.login().block();
     }

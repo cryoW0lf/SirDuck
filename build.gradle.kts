@@ -1,5 +1,6 @@
 plugins {
     java
+    id("com.github.johnrengelman.shadow").version("5.2.0")
 }
 
 group = "pw.cryow0lf"
@@ -15,4 +16,12 @@ dependencies {
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_12
+}
+
+tasks {
+    withType<Jar> {
+        manifest {
+            attributes["Main-Class"] = "pw.cryow0lf.sirduck.SirDuck"
+        }
+    }
 }
